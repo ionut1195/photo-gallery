@@ -3,7 +3,7 @@ import React from 'react';
 const NavElement = ({text}) => {
 	return (
 		<li className='hover:text-pink-200 ease-in-out duration-300 cursor-pointer'>
-			{text}
+			<a href={'#' + text}>{text}</a>
 		</li>
 	)
 }

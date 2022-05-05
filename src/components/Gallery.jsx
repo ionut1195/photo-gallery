@@ -1,12 +1,4 @@
 import React from 'react';
-import g1 from '../photos/architecture/a1.webp'
-import g2 from '../photos/architecture/a2.webp'
-import g3 from '../photos/architecture/a3.webp'
-import g4 from '../photos/architecture/a4.webp'
-import g5 from '../photos/architecture/a5.webp'
-import g6 from '../photos/architecture/a6.webp'
-import g7 from '../photos/architecture/a7.webp'
-import g8 from '../photos/architecture/a8.webp'
 
 const GalleryElement = ({src}) => {
 	return (
@@ -18,20 +10,20 @@ const GalleryElement = ({src}) => {
 			</div>
 	)
 }
+const Els = ({sec}) => sec.map(elem => <GalleryElement src={elem} />)
 
-const Gallery = ({section}) => {
+
+const Gallery = ({name, section }) => {
 	return (
-		<section className="overflow-hidden text-gray-700" id={section}>
+		<section className="overflow-hidden text-gray-700 border-solid border-2
+		 border-gray-300 mt-2" id={name}>
+			<h2 className='font-bold transform uppercase text-center text-sm
+			sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mt-4 p-3'>
+				{name}
+			</h2>
 			<div className="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
-				<div class="flex flex-wrap -m-1 md:-m-2">
-				<GalleryElement src={g1}/>
-				<GalleryElement src={g2}/>
-				<GalleryElement src={g3}/>
-				<GalleryElement src={g4}/>
-				<GalleryElement src={g5}/>
-				<GalleryElement src={g6}/>
-				<GalleryElement src={g7}/>
-				<GalleryElement src={g8}/>
+				<div className="flex flex-wrap -m-1 md:-m-2">
+					<Els sec={section}/>
 				</div>
 			</div>
 		</section>
