@@ -2,22 +2,21 @@ import React from 'react';
 
 const NavElement = ({text}) => {
 	return (
-		<li className='hover:text-pink-200 ease-in-out duration-300 cursor-pointer'>
-			<a href={'#' + text}>{text}</a>
-		</li>
+		<div className='duration-300 ease-in-out cursor-pointer hover:text-blue-400 font-nv2'>
+			<a href={'#' + text.toLowerCase()}>{text}</a>
+		</div>
 	)
 }
 
 const Navbar = () => {
 	return (
 		<div>
-			<ul className="list-none flex justify-end space-x-5 px-3 uppercase font-bold
-			 text-white text-s sm:text-1xl md:text-2xl lg:text-3xl lx:text-4xl bg-blue-400">
-				<NavElement text='home'/>
-				<NavElement text='gallery'/>
-				<NavElement text='pricing'/>
-				<NavElement text='contact' />
-			</ul>
+			<div className="container flex justify-end px-3 mx-auto mb-2 space-x-5 text-gray-700 text-s sm:text-xl md:text-2xl lg:text-3xl md:mb-4">
+				<NavElement text='Home'/>
+				<NavElement text='Gallery'/>
+				{/* <NavElement text='Pricing'/> */}
+				<NavElement text='Contact' />
+			</div>
 		</div>
 	);
 }

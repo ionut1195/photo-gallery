@@ -1,7 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Gallery from './components/Gallery';
-import Pricing from './components/Pricing';
+import Contact from './components/Contact';
 
 // import GalleryElement from './components/Gallery'
 import g1 from './photos/architecture/a1.webp'
@@ -21,11 +21,17 @@ import n5 from './photos/nature/n5.webp'
 import n6 from './photos/nature/n6.webp'
 import n7 from './photos/nature/n7.webp'
 import spider from './photos/nature/spider.webp'
+import autumn from './photos/nature/autumn-leaves.webp'
+import bird from './photos/nature/bird.webp'
+import fire from './photos/nature/fire.webp'
+import lake from './photos/nature/lake.webp'
+import mountain from './photos/nature/mountain.webp'
+import sunrise from './photos/nature/sunrise.webp'
 
 const architecture = [g1,g2,g3,g4,g5,g6,g7,g8]
 
 // const Arch = () => architecture.map(elem => <GalleryElement src={elem} />)
-const nature = [n1, n2, n3, n4, n5, n6, n7, spider]
+const nature = [n1, n2, n3, n4, n5, n6, n7, spider, autumn, bird, fire, mountain,lake, sunrise]
 
 
 
@@ -38,7 +44,7 @@ function App() {
 				<Gallery name="architecture" section={architecture}/>
 				<Gallery name="nature" section={nature}/>
 			</div>
-			<Pricing />
+			<Contact />
 		</div>
     	
   );
