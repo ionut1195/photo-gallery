@@ -3,7 +3,6 @@ import Hero from './components/Hero';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 
-// import GalleryElement from './components/Gallery'
 import g1 from './photos/architecture/a1.webp'
 import g2 from './photos/architecture/a2.webp'
 import g3 from './photos/architecture/a3.webp'
@@ -27,6 +26,8 @@ import fire from './photos/nature/fire.webp'
 import lake from './photos/nature/lake.webp'
 import mountain from './photos/nature/mountain.webp'
 import sunrise from './photos/nature/sunrise.webp'
+import { faAnglesUp, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const architecture = [g1,g2,g3,g4,g5,g6,g7,g8]
 
@@ -37,9 +38,13 @@ const nature = [n1, n2, n3, n4, n5, n6, n7, spider, autumn, bird, fire, mountain
 
 function App() {
   return (
-		<div>	
+		<div className='relative'>
 			<Navbar />
 			<Hero id='hero' />
+			<div  className='hidden sticky justify-center gap-y-2 items-center text-2xl bg-sky-500 md:grid grid-rows-2 w-10 h-20 top-[50vh] left-[calc(100%_-_3rem)] rounded-lg'>
+				<a href='#home'><FontAwesomeIcon icon={faAnglesUp} /></a>
+				<a href='#contact'><FontAwesomeIcon icon={faAnglesDown} /></a>
+			</div>
 			<div id='gallery'>
 				<Gallery name="architecture" section={architecture}/>
 				<Gallery name="nature" section={nature}/>
