@@ -41,9 +41,9 @@ function App() {
 		<div className='relative'>
 			<Navbar />
 			<Hero id='hero' />
-			<div  className='hidden sticky justify-center gap-y-2 items-center text-2xl bg-sky-500 md:grid grid-rows-2 w-10 h-20 top-[50vh] left-[calc(100%_-_3rem)] rounded-lg'>
-				<a href='#home'><FontAwesomeIcon icon={faAnglesUp} /></a>
-				<a href='#contact'><FontAwesomeIcon icon={faAnglesDown} /></a>
+			<div  className='hidden text-header-green sticky justify-center gap-y-2 items-center text-2xl bg-border-dark md:grid grid-rows-2 w-10 h-20 top-[50vh] left-[calc(100%_-_3rem)] rounded-lg'>
+				<a className='hover:text-hover-color ' href='#home'><FontAwesomeIcon icon={faAnglesUp} /></a>
+				<a className='hover:text-hover-color' href='#contact'><FontAwesomeIcon icon={faAnglesDown} /></a>
 			</div>
 			<div id='gallery'>
 				<Gallery name="architecture" section={architecture}/>
