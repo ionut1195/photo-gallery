@@ -1,8 +1,6 @@
 import React from 'react'
 import background from '../photos/photographer.jpeg'
 
-
-
 function Hero() {
   return (
 	<div className='container relative flex flex-col mx-auto h-30vh md:h-40vh lg:h-50vh'>

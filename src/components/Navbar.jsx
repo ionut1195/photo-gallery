@@ -15,7 +15,6 @@ const Navbar = () => {
 				<div className='container mx-auto text-center md:flex md:justify-center'>
 					<NavElement text='Home'/>
 					<NavElement text='Gallery'/>
-					{/* <NavElement text='Pricing'/> */}
 					<NavElement text='Contact' />
 				</div>
 			</div>
