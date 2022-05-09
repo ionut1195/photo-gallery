@@ -26,6 +26,7 @@ module.exports = {
 			'30vh': '30vh',
 			'50vh': '50vh',
 		},
+		
 		maxWidth: {
 			'mac': '1536px',
 		},

@@ -28,26 +28,36 @@ import mountain from './photos/nature/mountain.webp'
 import sunrise from './photos/nature/sunrise.webp'
 import { faAnglesUp, faAnglesDown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {useState} from 'react'
 
 const architecture = [g1,g2,g3,g4,g5,g6,g7,g8]
-
-// const Arch = () => architecture.map(elem => <GalleryElement src={elem} />)
 const nature = [n1, n2, n3, n4, n5, n6, n7, spider, autumn, bird, fire, mountain,lake, sunrise]
 
 
 
+
+
 function App() {
+	const [hiddenDisplay, setHiddenDisplay] = useState('hidden')
+	const handleSetHiddenDisplay = () => {
+		setHiddenDisplay(hiddenDisplay === 'hidden' ? 'block': 'hidden')
+
+	}
+
   return (
 		<div className='relative'>
 			<Navbar />
 			<Hero id='hero' />
-			<div  className='hidden text-header-green sticky justify-center gap-y-2 items-center text-2xl bg-border-dark md:grid grid-rows-2 w-10 h-20 top-[50vh] left-[calc(100%_-_3rem)] rounded-lg'>
+			<div  className='hidden z-10 text-header-green sticky justify-center gap-y-2 items-center text-2xl bg-border-dark md:grid grid-rows-2 w-10 h-20 top-[50vh] left-[calc(100%_-_3rem)] rounded-lg'>
 				<a className='hover:text-hover-color ' href='#home'><FontAwesomeIcon icon={faAnglesUp} /></a>
 				<a className='hover:text-hover-color' href='#contact'><FontAwesomeIcon icon={faAnglesDown} /></a>
 			</div>
+			<div onClick={handleSetHiddenDisplay} className={`${hiddenDisplay}  container flex top-[10%] z-10  mx-auto rounded-2xl bg-red-400 h-[calc(100vh_-_20vh)]`}>
+				
+			</div>
 			<div id='gallery'>
-				<Gallery name="architecture" section={architecture}/>
-				<Gallery name="nature" section={nature}/>
+				<Gallery onClick={handleSetHiddenDisplay} name="architecture" section={architecture}/>
+				<Gallery onClick={handleSetHiddenDisplay} name="nature" section={nature}/>
 			</div>
 			<Contact />
 		</div>
