@@ -3,7 +3,7 @@ import React from 'react';
 const GalleryElement = ({src, onClick}) => {
 	return (
 			<>
-					<img onClick={onClick} alt="gallery" className="block object-cover object-center w-full h-full rounded-lg hover:scale-125 hover:shadow-lg hover:shadow-cyan-400/50"
+					<img onClick={onClick} alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
 					src={src} />
 			</>
 	)
