@@ -43,7 +43,16 @@ function App() {
 		setHiddenDisplay(hiddenDisplay === 'hidden' ? 'block': 'hidden')
 
 	}
+	const [imgSource, setImgSource] = useState('')
+	const handleSetImgSource = (st) => {
+		setImgSource(st)
+	}
 
+	const handleImgClick = (event) => {
+		console.log(event)
+		handleSetHiddenDisplay()
+		handleSetImgSource(event.target.attributes.src.value)
+	}
   return (
 		<div className='relative'>
 			<Navbar />
@@ -52,12 +61,12 @@ function App() {
 				<a className='hover:text-hover-color ' href='#home'><FontAwesomeIcon icon={faAnglesUp} /></a>
 				<a className='hover:text-hover-color' href='#contact'><FontAwesomeIcon icon={faAnglesDown} /></a>
 			</div>
-			<div onClick={handleSetHiddenDisplay} className={`${hiddenDisplay}  container flex top-[10%] z-10  mx-auto rounded-2xl bg-red-400 h-[calc(100vh_-_20vh)]`}>
-				
+			<div onClick={handleSetHiddenDisplay} className={`${hiddenDisplay} sticky container flex top-[10%] z-10  mx-auto rounded-2xl bg-red-400 h-[calc(100vh_-_20vh)]`}>
+				<img src={imgSource} className='w-full h-full' alt=''></img>
 			</div>
 			<div id='gallery'>
-				<Gallery onClick={handleSetHiddenDisplay} name="architecture" section={architecture}/>
-				<Gallery onClick={handleSetHiddenDisplay} name="nature" section={nature}/>
+				<Gallery onClick={handleImgClick} name="architecture" section={architecture}/>
+				<Gallery onClick={handleImgClick} name="nature" section={nature}/>
 			</div>
 			<Contact />
 		</div>
