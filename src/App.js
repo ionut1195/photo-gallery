@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import StickySidebar from './components/StickySidebar';
+import HiddenDisplay from './components/HiddenDisplay';
 
 import g1 from './photos/architecture/a1.webp'
 import g2 from './photos/architecture/a2.webp'
@@ -27,8 +28,6 @@ import fire from './photos/nature/fire.webp'
 import lake from './photos/nature/lake.webp'
 import mountain from './photos/nature/mountain.webp'
 import sunrise from './photos/nature/sunrise.webp'
-import { faCircleLeft, faCircleRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {useState} from 'react'
 
 const allPictures = [g1,g2,g3,g4,g5,g6,g7,g8 ,n1, n2, n3, n4, n5, n6, n7, spider, autumn, bird, fire, mountain,lake, sunrise]
@@ -39,8 +38,8 @@ function App() {
 	const handleSetHiddenDisplay = () => {
 		setHiddenDisplay('flex')
 	}
-	const toggleHiddenDisplay = () => {
-		setHiddenDisplay(hiddenDisplay === 'hidden' ? 'flex': 'hidden')
+	const HideDisplay = () => {
+		setHiddenDisplay('hidden')
 	}
 	const [imgSource, setImgSource] = useState('')
 	const handleSetImgSource = (st) => {
@@ -67,15 +66,9 @@ function App() {
 			<Navbar />
 			<Hero id='hero' />
 			<StickySidebar />
-			<div className={`${hiddenDisplay}  fixed top-0 self-center container justify-center items-center  md:top-[10%] backdrop-blur-lg z-10 rounded-2xl bg-blue-100 h-[100vh]  md:h-50vh lg:h-[calc(100vh_-_20vh)]`}>
-				<FontAwesomeIcon onClick={handleClickLeft} className='absolute cursor-pointer left-0 top-1/2 text-hover-color text-2xl opacity-50 hover:opacity-100' icon={faCircleLeft} />
-				<FontAwesomeIcon onClick={handleClickRight} className='absolute cursor-pointer top-1/2 right-0  text-hover-color text-2xl  opacity-50 hover:opacity-100' icon={faCircleRight} />
-				{console.log(allPictures.indexOf(imgSource))}
-				<img  onClick={toggleHiddenDisplay} src={imgSource} className='h-auto w-auto md:h-full' alt=''></img>
-			</div>
-			<div id='gallery'>
-				<Gallery onClick={handleImgClick} name="Gallery" section={allPictures}/>
-			</div>
+      <HiddenDisplay display={hiddenDisplay} leftClick={handleClickLeft} rightClick={handleClickRight} 
+      hide={HideDisplay} show={handleSetHiddenDisplay} imgSource={imgSource}/>
+			<Gallery onClick={handleImgClick} name="Gallery" section={allPictures}/>
 			<Contact />
 		</div>
     	

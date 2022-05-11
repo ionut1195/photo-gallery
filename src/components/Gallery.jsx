@@ -17,7 +17,6 @@ const Gallery = ({name, section, onClick }) => {
 			<h2 className='p-3 mt-4 text-2xl font-bold tracking-widest text-center uppercase transition duration-1000 ease-in-out transform border-b-4 border-b-border-dark md:mt-7 lg:mt-10 xl:mt-14 font-roboto sm:text-3xl md:text-4xl lg:text-5xl '>
 				{name}
 			</h2>
-
 			<div className="container grid grid-cols-2 gap-2 px-2 py-2 mx-auto mt-2 sm:gap-4 lg:gap-6 xl:gap-8 md:grid-cols-3 max lg:pt-12">
 				<Els onClick={onClick} sec={section}/>
 			</div>
