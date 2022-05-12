@@ -5,6 +5,7 @@ import Contact from './components/Contact';
 import StickySidebar from './components/StickySidebar';
 import HiddenDisplay from './components/HiddenDisplay';
 import {useState, useEffect} from 'react'
+import InvoiceForm from './components/InvoiceForm';
 
 
 function App() {
@@ -76,6 +77,7 @@ function App() {
       <HiddenDisplay display={hiddenDisplay} leftClick={handleClickLeft} rightClick={handleClickRight} 
       hide={HideDisplay} show={handleSetHiddenDisplay} imgSource={imgSource} photoId={imgId}/>
 			<Gallery onClick={handleImgClick} name="Gallery" section={srcLinks}/>
+      <InvoiceForm />
 			<Contact />
 		</div>
     	
