@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 yarn.lock
+server/config.env
+yarn.lock
+server/node_modules
 
 # testing
 /coverage
