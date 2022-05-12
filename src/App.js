@@ -30,16 +30,21 @@ function App() {
   }, [links.length]);
 
   // console.log(links)
-  const srcLinks = links.map(element => element.link)
-  // console.log(srcLinks)
+  const srcLinks = links.map(element => ({link: element.link, id: element.id}))
+  // console.log(srcLinks.length)
 	const [hiddenDisplay, setHiddenDisplay] = useState('hidden')
 	const handleSetHiddenDisplay = () => {
-		setHiddenDisplay('flex')
+		setHiddenDisplay(hiddenDisplay === 'flex' ? 'hidden': 'flex')
 	}
 	const HideDisplay = () => {
 		setHiddenDisplay('hidden')
 	}
 	const [imgSource, setImgSource] = useState('')
+  const [imgId, setImgId] = useState(0)
+  
+  const handleSetImgId = (id) => {
+    setImgId(id)
+  }
 	const handleSetImgSource = (st) => {
 		setImgSource(st)
 	}
@@ -48,15 +53,19 @@ function App() {
 		// console.log(event)
 		handleSetHiddenDisplay()
 		handleSetImgSource(event.target.attributes.src.value)
+    // console.log(parseInt(event.target.id))
+    setImgId(parseInt(event.target.id))
 	}
 
 	const handleClickLeft = () => {
-		const idx = links.indexOf(imgSource)
-		setImgSource(srcLinks[idx > 0 ? idx - 1 : srcLinks.length - 1])
+    let id = imgId > 0 ? imgId - 1 : srcLinks.length - 1
+		setImgSource(srcLinks[id].link)
+    handleSetImgId(id)
 	}
 	const handleClickRight = () => {
-		const idx = srcLinks.indexOf(imgSource)
-		setImgSource(srcLinks[idx < srcLinks.length - 1 ? idx + 1 : 0])
+    let id = imgId < srcLinks.length - 1  ? imgId + 1 : 0
+		setImgSource(srcLinks[id].link)
+    handleSetImgId(id)
 	}
 
   return (
@@ -65,7 +74,7 @@ function App() {
 			<Hero id='hero' />
 			<StickySidebar />
       <HiddenDisplay display={hiddenDisplay} leftClick={handleClickLeft} rightClick={handleClickRight} 
-      hide={HideDisplay} show={handleSetHiddenDisplay} imgSource={imgSource}/>
+      hide={HideDisplay} show={handleSetHiddenDisplay} imgSource={imgSource} photoId={imgId}/>
 			<Gallery onClick={handleImgClick} name="Gallery" section={srcLinks}/>
 			<Contact />
 		</div>

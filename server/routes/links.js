@@ -7,7 +7,7 @@ const linkRoute = express.Router();
  
 // This will help us connect to the database
 const dbo = require("../db/conn");
- 
+
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
  
@@ -25,30 +25,28 @@ linkRoute.route("/links").get(function (req, res) {
 });
  
 // This section will help you get a single record by id
-linkRoute.route("/links/:id").get(function (req, res) {
- let db_connect = dbo.getDb();
- let myquery = { _id: ObjectId( req.params.id )};
- db_connect
-     .collection("links")
-     .findOne(myquery, function (err, result) {
-       if (err) throw err;
-       res.json(result);
-     });
-});
+// linkRoute.route("/links/:id").get(function (req, res) {
+//  let db_connect = dbo.getDb();
+//  let myquery = { _id: ObjectId( req.params.id )};
+//  db_connect
+//      .collection("links")
+//      .findOne(myquery, function (err, result) {
+//        if (err) throw err;
+//        res.json(result);
+//      });
+// });
  
 // This section will help you create a new record.
-linkRoute.route("/links/add").post(function (req, response) {
- let db_connect = dbo.getDb();
- let myobj = {
-   name: req.body.name,
-   position: req.body.position,
-   level: req.body.level,
- };
- db_connect.collection("links").insertOne(myobj, function (err, res) {
-   if (err) throw err;
-   response.json(res);
- });
-});
+// linkRoute.route("/links/add").post(function (req, response) {
+//  let db_connect = dbo.getDb();
+//  let myobj = {
+//    link: req.body.link
+//  };
+//  db_connect.collection("links").insertOne(myobj, function (err, res) {
+//    if (err) throw err;
+//    response.json(res);
+//  });
+// });
  
 // This section will help you update a record by id.
 linkRoute.route("/update/:id").post(function (req, response) {

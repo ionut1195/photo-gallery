@@ -24,15 +24,15 @@ import React from 'react';
 // 	);
 // }
 
-const GalleryElement = ({src, onClick}) => {
+const GalleryElement = ({src, id, onClick}) => {
 	return (
 			<>
-					<img onClick={onClick} alt="gallery" className="block object-cover object-center w-full h-full rounded-lg"
+					<img id={id} onClick={onClick} alt="" className="block object-cover object-center w-full h-full rounded-lg"
 					src={src} />
 			</>
 	)
 }
-const Els = ({sec, onClick}) => sec.map(elem => <GalleryElement onClick={onClick} key={sec.indexOf(elem)} src={elem} />)
+const Els = ({sec, onClick}) => sec.map(elem => <GalleryElement onClick={onClick} id={elem.id} key={elem.id} src={elem.link} />)
 
 
 const Gallery = ({name, section, onClick }) => {
