@@ -7,6 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.use(require("./routes/links"));
 // get driver connection
+app.use(express.static('../build'))
 const dbo = require("./db/conn");
  
 app.listen(port, () => {
