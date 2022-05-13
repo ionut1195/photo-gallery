@@ -37,7 +37,7 @@ const Els = ({sec, onClick}) => sec.map(elem => <GalleryElement onClick={onClick
 
 const Gallery = ({name, section, onClick }) => {
 	return (
-		<section className="container flex flex-col mx-auto mt-2 overflow-hidden text-gray-700 max-w-mac" id={name}>
+		<section className="container flex flex-col mx-auto mt-2 overflow-hidden text-gray-700 max-w-mac" id={name.toLowerCase()}>
 			<h2 className='p-3 mt-4 text-2xl font-bold tracking-widest text-center uppercase transition duration-1000 ease-in-out transform border-b-4 border-b-border-dark md:mt-7 lg:mt-10 xl:mt-14 font-roboto sm:text-3xl md:text-4xl lg:text-5xl '>
 				{name}
 			</h2>

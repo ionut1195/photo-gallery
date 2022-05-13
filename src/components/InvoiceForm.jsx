@@ -2,10 +2,10 @@ import React from 'react'
 
 export default function InvoiceForm() {
   return (
-    <div className="container w-full grid max-w-[90vw] md:max-w-[60vw] lg:max-w-[50vw] xl:max-w-[40vw] p-6 mx-auto mt-4 bg-white rounded-lg shadow-lg">
-  <form>
+    <div className="container w-full grid max-w-[90vw] md:max-w-[60vw] lg:max-w-[50vw] 2xl:max-w-[40vw]  p-6 mx-auto mt-4 bg-white rounded-lg shadow-lg">
+  <form action="https://formsubmit.co/edgars.kraujins@gmail.com" method="POST">
     <div className="mb-6 form-group">
-      <input type="text" className="form-control block
+      <input type="text" name='name' className="form-control block
         w-full
         px-3
         py-1.5
@@ -22,7 +22,7 @@ export default function InvoiceForm() {
         placeholder="Name" />
     </div>
     <div className="mb-6 form-group">
-      <input type="email" className="form-control block
+      <input type="email" name='email' className="form-control block
         w-full
         px-3
         py-1.5
@@ -39,7 +39,7 @@ export default function InvoiceForm() {
         placeholder="Email address" />
     </div>
     <div className="mb-6 form-group">
-      <textarea
+      <textarea  name='message'
       className="
         form-control
         block
